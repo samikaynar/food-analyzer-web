@@ -12,13 +12,15 @@ nameBtn.addEventListener("click", function() {
   analyzeProduct(text);
 });
 
+const API_BASE = 'https://food-analyzer-web.up.railway.app';
+
 
 async function analyzeProduct(productName) {
   resultsSection.style.display = "block";
   resultsContainer.innerHTML = "<div class='loading'>Loading...</div>";
 
   try {
-    const response = await fetch('http://localhost:5000/analyze', {
+    const response = await fetch(`${API_BASE}/analyze`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
